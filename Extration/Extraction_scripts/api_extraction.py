@@ -28,7 +28,7 @@ def get_country_codes():
     url = "http://api.worldbank.org/v2/country"
     params = {
         "format": "json",
-        "per_page": 100,
+        "per_page": 1000,
     }
 
     response = requests.get(url, params=params)
