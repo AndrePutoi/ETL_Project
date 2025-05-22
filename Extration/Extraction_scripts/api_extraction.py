@@ -8,6 +8,22 @@ import time
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "..", "Api_Data")
 os.makedirs(DATA_DIR, exist_ok=True)
+
+def get_indicator_metadata(indicator_code):
+    url = f"http://api.worldbank.org/v2/indicator/{indicator_code}"
+    params = {"format": "json"}
+
+    response = requests.get(url, params=params)
+    data = response.json()[1][0]
+
+    return {
+        "indicator_id": data["id"],
+        "name": data["name"],
+        "topics": [t["value"] for t in data.get("topics", [])],
+        "source": data["source"]["value"]
+    }
+
+
 def get_country_codes():
     url = "http://api.worldbank.org/v2/country"
     params = {
@@ -30,6 +46,10 @@ def get_country_codes():
 
 
 def get_dataset_country_topic( topic_code,country_code):
+    # Obter metadados
+    metadata = get_indicator_metadata(topic_code)
+    topic_names = ", ".join(metadata["topics"])  # Pode haver mais que um
+
     url = f"http://api.worldbank.org/v2/country/{country_code}/indicator/{topic_code}"
     #ano_atual = datetime.now().year
     params = {
@@ -44,9 +64,11 @@ def get_dataset_country_topic( topic_code,country_code):
 
     df = pd.DataFrame([{
         "ano": item["date"],
-        "topic_code": item["value"],
+        "valor": item["value"],
         "pais": item["country"]["value"],
-        "codigo_pais": item["country"]["id"]
+        "codigo_pais": item["country"]["id"],
+        "indicador": topic_code,
+        "categoria": topic_names
     } for item in data])
 
     return df
@@ -142,12 +164,35 @@ ID: SP.POP.TOTL, Nome: Population, total
         'SE.TER.CUAT.BA.ZS':'Educational_attainment_at_least_Bachelor_or_equivalent_population_25-plus_total_percent_cumulative'#
 
     }
+
+    short_indicators = {
+        'SP.POP.TOTL': ('pop_total', 'pop'),
+        'NY.GDP.MKTP.KD.ZG': ('gdp_growth', 'econ'),
+        'NY.GDP.PCAP.CD': ('gdp_pc_usd', 'econ'),
+        'SM.POP.TOTL': ('mig_stock_total', 'mig'),
+        'SM.POP.TOTL.ZS': ('mig_stock_pct', 'mig'),
+        'SP.DYN.CBRT.IN': ('birth_rate', 'health'),
+        'SP.DYN.LE00.IN': ('life_exp', 'health'),
+        'SL.UEM.TOTL.ZS': ('unemp_pct', 'labor'),
+        'NE.IMP.GNFS.ZS': ('imports_pct_gdp', 'trade'),
+        'NE.IMP.GNFS.CD': ('imports_usd', 'trade'),
+        'NE.EXP.GNFS.ZS': ('exports_pct_gdp', 'trade'),
+        'NE.EXP.GNFS.CD': ('exports_usd', 'trade'),
+        'EG.ELC.RNEW.ZS': ('ren_elc_pct', 'energy'),
+        'EG.FEC.RNEW.ZS': ('ren_energy_pct', 'energy'),
+        'EG.ELC.ACCS.UR.ZS': ('elec_access_pct', 'infra'),
+        'SE.PRM.CMPT.ZS': ('edu_prim_comp', 'edu'),
+        'SE.TER.CUAT.DO.ZS': ('edu_phd', 'edu'),
+        'SE.SEC.CUAT.LO.ZS': ('edu_sec', 'edu'),
+        'SE.TER.CUAT.MS.ZS': ('edu_masters', 'edu'),
+        'SE.TER.CUAT.BA.ZS': ('edu_bachelor', 'edu')
+    }
     for indicator,indicator_name in indicators.items():
         for country_code, country_name in country_codes.items():
             print(f"Coletando dados para o indicador {indicator} ({indicator_name}) do país {country_name} ({country_code})")
             df = get_dataset_country_topic(indicator, country_code)
             if not df.empty:
-                save_dataset_to_csv(df, country_name, indicator_name)
+                save_dataset_to_csv(df, country_name, indicator=short_indicators[f'{indicator}'][0])
             else:
                 print(f"Sem dados para o indicador {indicator} ({indicator_name}) do país {country_name} ({country_code})")
             time.sleep(0.5)
