@@ -7,6 +7,10 @@ csv_file_path = r"C:\Users\André Putoi\Documents\ETL_job\Extration\Generated_da
 
 # Lê o CSV
 df = pd.read_csv(csv_file_path)
+# Tirar o PaisID
+df.drop(columns=['PaisID'], inplace=True, errors='ignore')
+
+
 df.rename(columns={
     'year': 'YEAR',
     'century': 'Century',

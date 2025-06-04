@@ -30,7 +30,7 @@ def extrair_todos_paises():
             continue
 
         paises.append({
-            "ISO3_code": item.get("id"),
+            "ISO3_Code": item.get("id"),
             "Country": item.get("name"),
             "Region": item.get("region", {}).get("value", "não definido"),
             "SubRegion": item.get("adminregion", {}).get("value", "não definido"),

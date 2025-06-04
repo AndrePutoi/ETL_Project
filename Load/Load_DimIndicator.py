@@ -3,15 +3,12 @@ import pandas as pd
 import os
 
 # Caminho para o CSV (ajusta para o teu caminho real!)
-csv_file_path = r"C:\Users\André Putoi\Documents\ETL_job\Extration\Generated_data\anos_enriquecidos.csv"
+csv_file_path = r"C:\Users\André Putoi\Documents\ETL_job\Extration\Generated_data\metadados_indicadores.csv"
 
 # Lê o CSV
 df = pd.read_csv(csv_file_path)
 df.rename(columns={
-    'year': 'YEAR',
-    'century': 'Century',
-    'leap_year': 'Leap_Year',
-    'decade_pos': 'Decade_Pos'
+    'Name': 'Indicator_name'
 }, inplace=True, errors='ignore')
 
 # Conexão com SQL Server
@@ -33,9 +30,9 @@ cursor = cnxn.cursor()
 # Inserir dados linha a linha
 for index, row in df.iterrows():
     cursor.execute("""
-        INSERT INTO DimTime (YEAR, Decade, Century, Leap_Year, Decade_Pos)
-        VALUES (?, ?, ?, ?, ?)
-    """, row.YEAR, row.Decade, row.Century, row.Leap_Year, row.Decade_Pos)
+        INSERT INTO DimIndicator (WB_Code, Indicator_name, Description, Source, Periodicity,Topics)
+        VALUES (?, ?, ?, ?, ?,?)
+    """, row.WB_Code, row.Indicator_name, row.Description, row.Source, row.Periodicity, row.Topics)
 
 # Commit e fecha conexão
 cnxn.commit()

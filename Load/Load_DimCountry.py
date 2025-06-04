@@ -3,16 +3,11 @@ import pandas as pd
 import os
 
 # Caminho para o CSV (ajusta para o teu caminho real!)
-csv_file_path = r"C:\Users\André Putoi\Documents\ETL_job\Extration\Generated_data\anos_enriquecidos.csv"
+csv_file_path = r"C:\Users\André Putoi\Documents\ETL_job\Extration\Generated_data\Pais_metadados.csv"
 
 # Lê o CSV
 df = pd.read_csv(csv_file_path)
-df.rename(columns={
-    'year': 'YEAR',
-    'century': 'Century',
-    'leap_year': 'Leap_Year',
-    'decade_pos': 'Decade_Pos'
-}, inplace=True, errors='ignore')
+
 
 # Conexão com SQL Server
 server = r'DESKTOP-1QEIURD\SQLEXPRESS'
@@ -33,9 +28,9 @@ cursor = cnxn.cursor()
 # Inserir dados linha a linha
 for index, row in df.iterrows():
     cursor.execute("""
-        INSERT INTO DimTime (YEAR, Decade, Century, Leap_Year, Decade_Pos)
-        VALUES (?, ?, ?, ?, ?)
-    """, row.YEAR, row.Decade, row.Century, row.Leap_Year, row.Decade_Pos)
+        INSERT INTO DimCountry (ISO3_Code,Country,Region,Income_Level,Lending_Type,Capital,Latitude,Longitude,Continent)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)
+    """, row.ISO3_Code, row.Country, row.Region, row.Income_Level, row.Lending_Type, row.Capital, row.Latitude, row.Longitude, row.Continent)
 
 # Commit e fecha conexão
 cnxn.commit()
