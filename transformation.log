@@ -1,0 +1,44 @@
+2025-06-02 07:41:53,455 - transformation - INFO - Iniciando concatenação dos CSVs em C:\Users\André Putoi\Documents\ETL_job\Transformation\Final_Aggregation\..\Interpolation_imputation\Imputed_data
+2025-06-02 07:41:53,471 - transformation - INFO - Arquivo AgricultureValueAdded_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,477 - transformation - INFO - Arquivo CentralGovDebt_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,484 - transformation - INFO - Arquivo ExpenseGDP_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,489 - transformation - INFO - Arquivo ExportsGDP_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,493 - transformation - INFO - Arquivo ExternalDebtStocks_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,503 - transformation - INFO - Arquivo GDPcurrentUSD_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,513 - transformation - INFO - Arquivo GDPgrowth_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,516 - transformation - INFO - Arquivo GDPperCapitaGrowth_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,523 - transformation - INFO - Arquivo GDPperCapita_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,534 - transformation - INFO - Arquivo GrossCapitalFormation_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,536 - transformation - INFO - Arquivo GrossSavings_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,544 - transformation - INFO - Arquivo HighTechManufacturing_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,553 - transformation - INFO - Arquivo ImportsGDP_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,555 - transformation - INFO - Arquivo IndustryValueAdded_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,567 - transformation - INFO - Arquivo InflationCPI_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,573 - transformation - INFO - Arquivo InflationDeflator_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,578 - transformation - INFO - Arquivo RevenueExclGrants_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,583 - transformation - INFO - Arquivo ShortTermDebt_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,587 - transformation - INFO - Arquivo TotalDebtService_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,595 - transformation - INFO - Arquivo TotalReserves_imputed.csv carregado com 6048 linhas
+2025-06-02 07:41:53,867 - transformation - INFO - Concatenação concluída, arquivo salvo em: C:\Users\André Putoi\Documents\ETL_job\Transformation\Final_Aggregation\Final_data\all_indicators_concatenated.csv
+2025-06-02 07:47:38,914 - transformation - INFO - Iniciando concatenação dos CSVs em C:\Users\André Putoi\Documents\ETL_job\Transformation\Final_Aggregation\..\Interpolation_imputation\Imputed_data
+2025-06-02 07:47:38,924 - transformation - INFO - Arquivo AgricultureValueAdded_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,932 - transformation - INFO - Arquivo CentralGovDebt_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,934 - transformation - INFO - Arquivo ExpenseGDP_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,945 - transformation - INFO - Arquivo ExportsGDP_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,947 - transformation - INFO - Arquivo ExternalDebtStocks_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,957 - transformation - INFO - Arquivo GDPcurrentUSD_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,962 - transformation - INFO - Arquivo GDPgrowth_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,969 - transformation - INFO - Arquivo GDPperCapitaGrowth_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,975 - transformation - INFO - Arquivo GDPperCapita_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,982 - transformation - INFO - Arquivo GrossCapitalFormation_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,985 - transformation - INFO - Arquivo GrossSavings_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:38,995 - transformation - INFO - Arquivo HighTechManufacturing_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:39,001 - transformation - INFO - Arquivo ImportsGDP_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:39,006 - transformation - INFO - Arquivo IndustryValueAdded_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:39,012 - transformation - INFO - Arquivo InflationCPI_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:39,018 - transformation - INFO - Arquivo InflationDeflator_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:39,023 - transformation - INFO - Arquivo RevenueExclGrants_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:39,025 - transformation - INFO - Arquivo ShortTermDebt_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:39,034 - transformation - INFO - Arquivo TotalDebtService_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:39,042 - transformation - INFO - Arquivo TotalReserves_imputed.csv carregado com 6048 linhas
+2025-06-02 07:47:39,234 - transformation - INFO - Concatenação concluída, arquivo salvo em: C:\Users\André Putoi\Documents\ETL_job\Transformation\Final_Aggregation\Final_data\all_indicators_concatenated.csv

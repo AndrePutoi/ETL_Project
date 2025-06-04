@@ -1,5 +1,7 @@
-apache-airflow==2.9.0
+apache-airflow==3.0.1
 pandas==2.2.2
 requests==2.31.0
 statsmodels==0.14.4
 pycountry-convert==0.7.2
+black==25.1.0
+matplotlib==3.10.3

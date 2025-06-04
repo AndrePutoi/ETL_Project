@@ -5,7 +5,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE_DIR, "..","Generated_data")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-def enriquecer_dados_com_ano(df, coluna_ano="ano"):
+def enriquecer_dados_com_ano(df, coluna_ano="year"):
     """
     Adiciona colunas úteis baseadas na coluna 'ano':
     - decada
@@ -33,7 +33,7 @@ def enriquecer_dados_com_ano(df, coluna_ano="ano"):
 # Exemplo de uso:
 if __name__ == "__main__":
     # Exemplo com anos de 2000 a 2024
-    anos = pd.DataFrame({"ano": list(range(2000, 2025))})
+    anos = pd.DataFrame({"year": list(range(2000, 2025))})
     df_enriquecido = enriquecer_dados_com_ano(anos)
 
     # Guarda em CSV (opcional)
