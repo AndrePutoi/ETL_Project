@@ -32,7 +32,7 @@ git clone <https://github.com/AndrePutoi/ETL_Project>
 pip install -r requirements.txt
 ```
 
-#### 3. ALterar as variaveis da connecção ao SQL server nos ficheiros na pasta Load
+#### 3. ALterar as variaveis da connecção ao SQL server nos ficheiros na pasta Load, e criar as tabelas a partir do data_warehouse.sql
 
 ---
 
@@ -53,6 +53,8 @@ ETL_Project/
 │       ├── Generate_location_data.py
 │       └──  Generate_series_data.py
 ├── Load/
+│   ├── SQL_code/
+│       └── data_warehouse.sql
 │   ├── Final_Filter.py
 │   ├── Load_DimCountry.py
 │   ├── Load_DimIndicator.py
