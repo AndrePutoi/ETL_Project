@@ -3,8 +3,8 @@ import pandas as pd
 import os
 
 # Caminho para o CSV (ajusta para o teu caminho real!)
-csv_file_path = r"C:\Users\André Putoi\Documents\ETL_job\Extration\Generated_data\metadados_indicadores.csv"
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+csv_file_path = os.path.join(BASE_DIR, "..", "Extration", "Generated_data", "metadados_indicadores.csv.csv")
 # Lê o CSV
 df = pd.read_csv(csv_file_path)
 df.rename(columns={

@@ -3,12 +3,12 @@ import pandas as pd
 import os
 
 # Caminho para o CSV (ajusta para o teu caminho real!)
-csv_file_path = r"C:\Users\André Putoi\Documents\ETL_job\Extration\Generated_data\anos_enriquecidos.csv"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+csv_file_path = os.path.join(BASE_DIR, "..", "Extration", "Generated_data", "anos_enriquecidos.csv")
 
 # Lê o CSV
 df = pd.read_csv(csv_file_path)
-# Tirar o PaisID
-df.drop(columns=['PaisID'], inplace=True, errors='ignore')
+#
 
 
 df.rename(columns={

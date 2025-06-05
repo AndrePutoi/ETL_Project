@@ -60,6 +60,7 @@ def interpolate_linear_ffill_bfill(indicator_name):
 
     df = pd.read_csv(file_path)
 
+
     if df.empty or 'valor' not in df.columns:
         logger.warning(f"Dados ausentes ou coluna 'valor' não encontrada em {indicator_name}.")
         return
