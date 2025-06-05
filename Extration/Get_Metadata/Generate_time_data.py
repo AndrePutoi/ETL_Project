@@ -33,7 +33,7 @@ def enriquecer_dados_com_ano(df, coluna_ano="year"):
 # Exemplo de uso:
 if __name__ == "__main__":
     # Exemplo com anos de 2000 a 2024
-    anos = pd.DataFrame({"year": list(range(2000, 2025))})
+    anos = pd.DataFrame({"year": list(range(1990, 2025))})
     df_enriquecido = enriquecer_dados_com_ano(anos)
 
     # Guarda em CSV (opcional)

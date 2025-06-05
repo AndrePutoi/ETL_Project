@@ -28,9 +28,9 @@ cursor = cnxn.cursor()
 # Inserir dados linha a linha
 for index, row in df.iterrows():
     cursor.execute("""
-        INSERT INTO DimCountry (ISO3_Code,Country,Region,Income_Level,Lending_Type,Capital,Latitude,Longitude,Continent)
+        INSERT INTO DimCountry (IS03_Code,Country,Region,Income_Level,Lending_Type,Capital,Latitude,Longitude,Continent)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)
-    """, row.ISO3_Code, row.Country, row.Region, row.Income_Level, row.Lending_Type, row.Capital, row.Latitude, row.Longitude, row.Continent)
+    """, row.IS03_Code, row.Country, row.Region, row.Income_Level, row.Lending_Type, row.Capital, row.Latitude, row.Longitude, row.Continent)
 
 # Commit e fecha conexão
 cnxn.commit()

@@ -24,7 +24,9 @@ logger.addHandler(stream_handler)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "..", "Interpolation_imputation", "Imputed_data")
 OUTPUT_DIR = os.path.join(BASE_DIR, "Final_data")
+OUTPUT_DIR_2 = os.path.join(BASE_DIR, "..", "..", "dags", "Final_data")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
+os.makedirs(OUTPUT_DIR_2, exist_ok=True)
 
 def concatenate_all_indicators():
     logger.info(f"Iniciando concatenação dos CSVs em {DATA_DIR}")
@@ -49,7 +51,9 @@ def concatenate_all_indicators():
         concatenated_df.drop(columns=['valor'], inplace=True, errors='ignore')
         concatenated_df.rename(columns={'codigo_pais': 'country_code','valor_interpolated':'value','indicador':'indicator','ano':'year'}, inplace=True, errors='ignore')
         output_file = os.path.join(OUTPUT_DIR, "all_indicators_concatenated.csv")
+        output_file_2 = os.path.join(OUTPUT_DIR_2, "all_indicators_concatenated.csv")
         concatenated_df.to_csv(output_file, index=False)
+        concatenated_df.to_csv(output_file_2, index=False)
         logger.info(f"Concatenação concluída, arquivo salvo em: {output_file}")
     else:
         logger.warning("Nenhum dataframe para concatenar.")

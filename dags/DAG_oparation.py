@@ -106,7 +106,7 @@ def extract_new_data():
     logger.setLevel(logging.INFO)
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    DATA_DIR = os.path.join(BASE_DIR, "..", "Transformation", "Final_Aggregation", "Final_data")
+    DATA_DIR = os.path.join(BASE_DIR, "Final_data")
 
     # Carregar os novos dados
     new_data_path = os.path.join(BASE_DIR, "worldbank_dados_ultimos_5_anos.csv")
@@ -158,8 +158,7 @@ def load_new_data():
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
         # Caminho do arquivo CSV final
-        csv_file_path = os.path.join(BASE_DIR, "..", "Transformation", "Final_Aggregation", "Final_data",
-                                     "all_indicators_concatenated.csv")
+        csv_file_path = os.path.join(BASE_DIR,"Final_data", "all_indicators_concatenated.csv")
 
         # Lê o CSV
         df = pd.read_csv(csv_file_path)
@@ -174,7 +173,7 @@ def load_new_data():
 
         # Conexão com o SQL Server
         server = r'DESKTOP-1QEIURD\SQLEXPRESS'
-        database = 'Indicators_DB_test'
+            database = 'Indicators_DB_test'
         username = 'sa'
         password = 'sa'
 
@@ -213,7 +212,7 @@ def load_new_data():
 # Definição do DAG
 with DAG(
     dag_id='worldbank_etl',
-    schedule_interval='@monthly',  # Executa uma vez por mês
+    schedule='@monthly',  # Executa uma vez por mês
     start_date=datetime(2024, 1, 1),
     catchup=False,
     default_args={'retries': 1},

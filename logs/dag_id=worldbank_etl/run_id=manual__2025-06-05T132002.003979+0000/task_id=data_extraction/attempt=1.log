@@ -1,0 +1,12 @@
+{"timestamp":"2025-06-05T13:20:06.254132","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-06-05T13:20:06.254797","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/DAG_oparation.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-05T13:20:06.315307Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T13:20:06.316210Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T13:20:06.316518Z","level":"info","event":"Current task name:data_extraction","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T13:20:06.316787Z","level":"info","event":"Dag name:worldbank_etl","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T13:35:45.082348","level":"warning","event":"Nenhum dado encontrado para HKG - GC.XPN.TOTL.GD.ZS","logger":"airflow.task"}
+{"timestamp":"2025-06-05T13:43:32.330556","level":"info","event":"Dados salvos em: /opt/airflow/dags/worldbank_dados_ultimos_5_anos.csv","logger":"airflow.task"}
+{"timestamp":"2025-06-05T13:43:32.472614","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}
+{"timestamp":"2025-06-05T13:43:32.716255Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T13:43:32.716728Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T13:43:32.717284Z","level":"info","event":"Task operator:<Task(PythonOperator): data_extraction>","chan":"stdout","logger":"task"}

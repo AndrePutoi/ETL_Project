@@ -18,6 +18,7 @@ df.rename(columns={
     'indicator': 'WB_Code',
     'value': 'Value'
 }, inplace=True, errors='ignore')
+df['Value'] = df['Value'].apply(lambda x: round(x, 5) if pd.notnull(x) else x)
 
 # Conexão com SQL Server
 server = r'DESKTOP-1QEIURD\SQLEXPRESS'
@@ -38,9 +39,9 @@ cursor = cnxn.cursor()
 # Inserir dados linha a linha
 for index, row in df.iterrows():
     cursor.execute("""
-        INSERT INTO FactIndicatores (YEAR, ISO3_Code, WB_Code, Value)
-        VALUES (?, ?, ?, ?, ?)
-    """, row.YEAR, row.ISO3_Code, row.WB_Code, row.Value)
+        INSERT INTO FactIndicators (YEAR, IS03_Code, WB_Code, Value)
+        VALUES (?, ?, ?, ?)
+    """, row.YEAR, row.IS03_Code, row.WB_Code, row.Value)
 
 # Commit e fecha conexão
 cnxn.commit()

@@ -4,7 +4,7 @@ import os
 
 # Caminho para o CSV (ajusta para o teu caminho real!)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-csv_file_path = os.path.join(BASE_DIR, "..", "Extration", "Generated_data", "metadados_indicadores.csv.csv")
+csv_file_path = os.path.join(BASE_DIR, "..", "Extration", "Generated_data", "metadados_indicadores.csv")
 # Lê o CSV
 df = pd.read_csv(csv_file_path)
 df.rename(columns={

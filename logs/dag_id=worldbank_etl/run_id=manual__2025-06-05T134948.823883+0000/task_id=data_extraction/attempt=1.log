@@ -1,0 +1,11 @@
+{"timestamp":"2025-06-05T13:49:49.733578","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-06-05T13:49:49.734451","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/DAG_oparation.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-05T13:49:49.866556Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T13:49:49.867040Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T13:49:49.867309Z","level":"info","event":"Current task name:data_extraction","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T13:49:49.867542Z","level":"info","event":"Dag name:worldbank_etl","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T14:10:05.189678","level":"info","event":"Dados salvos em: /opt/airflow/dags/worldbank_dados_ultimos_5_anos.csv","logger":"airflow.task"}
+{"timestamp":"2025-06-05T14:10:05.259466","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}
+{"timestamp":"2025-06-05T14:10:05.414905Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T14:10:05.415433Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-05T14:10:05.415665Z","level":"info","event":"Task operator:<Task(PythonOperator): data_extraction>","chan":"stdout","logger":"task"}

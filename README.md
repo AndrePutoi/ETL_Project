@@ -78,6 +78,7 @@ ETL_Project/
 ├── README.md
 ├── requirements.txt
 ├── puglin/
+├── ETL_diagram.png
 └── PowerBI/
     └── World_Bank_Dashboard.pbix
 ```
@@ -87,7 +88,7 @@ ETL_Project/
 ## 📊 Executar o Pipeline
 
 ### Diagrama da Pipeline
-![Texto alternativo](caminho/para/imagem.png)
+![Texto alternativo](ETL_diagram.png)
 
 ### Executar a Extração
 #### No terminal, execute o seguinte comando, para extração do metadados e dos dados:
@@ -133,9 +134,94 @@ Abra o arquivo `Economy_Dashboard.pbix` no Power BI Desktop e conecte-se ao banc
 
 ---
 
-## Resultados e Insights
+## 📊 Insights Macroeconômicos Globais
 
--
+### 🌍 Indicadores Macroeconômicos Gerais
+
+- **PIB per capita global:** USD 10.560 — valor moderado, refletindo disparidades regionais entre países desenvolvidos e em desenvolvimento.
+- **Inflação global:** 33,27% — extremamente elevada, indicando possíveis desequilíbrios econômicos, como:
+  - Crises cambiais
+  - Instabilidades monetárias
+  - Políticas fiscais frágeis
+- **Comércio internacional (% do PIB):**
+  - **Importações:** 45,93%
+  - **Exportações:** 39,81%
+  - 🔺 O mundo importa mais do que exporta, sugerindo um **déficit comercial agregado** global.
+
+---
+
+### 📈 Crescimento Econômico Global
+
+- **Tendência volátil**, com quedas acentuadas:
+  - 🟠 **2009** – Crise financeira global
+  - 🔴 **2020** – Pandemia da COVID-19
+- **Forte recuperação pós-2020**, associada a:
+  - Estímulos governamentais
+  - Reabertura econômica global
+
+---
+
+### 💰 Investimento e Despesa Pública por Continente
+
+- **Europa:**
+  - Maior despesa pública (~28% do PIB)
+  - Maior formação bruta de capital (~37%)
+- **Oceania:**
+  - Alto nível de investimento público (~35%)
+- **África e Ásia:**
+  - Níveis mais baixos (~20–25%)
+  - ⚠️ Sinalizam restrições orçamentárias ou baixa capacidade fiscal
+
+---
+
+### 🗺️ Distribuição do PIB per capita
+
+- **Altos valores em:**
+  - América do Norte
+  - Europa Ocidental
+  - Ásia Desenvolvida (Japão, Coreia do Sul)
+- **Baixos valores em:**
+  - África
+  - Sul e Sudeste Asiático
+- ➡️ Reflete **forte desigualdade econômica** global
+
+---
+
+### 🧾 Situação da Dívida Global
+
+- **Dívida pública:** 60,15% do PIB — elevado, mas administrável
+- **Dívida externa:** 61,75% do PIB — mostra dependência de financiamento estrangeiro
+- **Curto prazo:** USD 830,32 bilhões — risco elevado de refinanciamento
+- **Serviço da dívida:** 14,53% do PIB — reduz espaço para investimentos sociais
+
+---
+
+### 📈 Evolução da Dívida Pública (% do PIB)
+
+- **Tendência crescente desde 2010**
+- **Pico acima de 70% após 2020**, devido à:
+  - Pandemia
+  - Pacotes de estímulo e gastos emergenciais
+
+---
+
+### 🏦 Reservas Internacionais
+
+- **China** lidera globalmente (~USD 2 trilhões)
+- **Outros países com grandes reservas:**
+  - Japão
+  - Estados Unidos
+  - Suíça
+  - Arábia Saudita
+- 🛡️ Indicam alta capacidade de defesa cambial e estabilidade financeira
+
+---
+
+### 🌎 Vulnerabilidades Regionais
+
+- **África e América Latina**:
+  - Altos níveis de dívida externa em relação ao PIB
+  - ⚠️ Sugerem fragilidade fiscal e maior exposição a choques econômicos externos
 
 
 
@@ -144,5 +230,6 @@ Abra o arquivo `Economy_Dashboard.pbix` no Power BI Desktop e conecte-se ao banc
 - Implementar um melhor sistema de verificação de dados duplicados;
 - Adicionar mais indicadores;
 - Adicionar mais métricas de segurança e monitoramento;
+- Melhorias na DAG em funcionamento;
 
 
