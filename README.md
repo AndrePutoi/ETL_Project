@@ -1,4 +1,4 @@
-# ??🌐 World Bank Open Data API Pipeline e Dashboard
+# 🌐 World Bank Open Data API Pipeline e Dashboard
 
 
 ---
@@ -224,8 +224,11 @@ Abra o arquivo `Economy_Dashboard.pbix` no Power BI Desktop e conecte-se ao banc
 - **África e América Latina**:
   - Altos níveis de dívida externa em relação ao PIB
   - ⚠️ Sugerem fragilidade fiscal e maior exposição a choques econômicos externos
-
-
+---
+### Capturas de ecrã do Power BI
+![Overview da Economia](Economic.png)
+![Overview das Dividas](Debt.png)
+![Glossario dos indicadores](Glossario.png)
 
 ---
 ## Melhorias futuras

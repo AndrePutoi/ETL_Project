@@ -158,7 +158,7 @@ def load_new_data():
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
         # Caminho do arquivo CSV final
-        csv_file_path = os.path.join(BASE_DIR,"Final_data", "all_indicators_concatenated.csv")
+        csv_file_path = os.path.join(BASE_DIR,"new_worldbank_data.csv")
 
         # Lê o CSV
         df = pd.read_csv(csv_file_path)
@@ -173,7 +173,7 @@ def load_new_data():
 
         # Conexão com o SQL Server
         server = r'DESKTOP-1QEIURD\SQLEXPRESS'
-            database = 'Indicators_DB_test'
+        database = 'Indicators_DB_test'
         username = 'sa'
         password = 'sa'
 
