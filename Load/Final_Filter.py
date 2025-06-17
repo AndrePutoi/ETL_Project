@@ -17,7 +17,7 @@ def country_dataset_verification():
 
     # Retirar a coluna 'SubRegion
     if 'SubRegion' in df_countries.columns:
-        df_countries.drop(columns=['SubRegion'], inplace=True)
+        df_countries.drop(columns=['SubRegion','Currency'], inplace=True)
         print("\nColuna 'SubRegion' removida do DataFrame.")
         df_countries.to_csv(csv_file_path, index=False)
 

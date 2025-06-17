@@ -29,7 +29,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 API_DATA_DIR = os.path.join(BASE_DIR, "..", "..", "Extration", "Api_Economy_Data")
 
 # Diretório onde vais guardar os datasets concatenados
-OUTPUT_DIR = os.path.join(BASE_DIR, "Concatenated_data")
+OUTPUT_DIR = os.path.join(BASE_DIR, "..", "Raw_formatted_Economy_Data")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 

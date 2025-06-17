@@ -12,7 +12,6 @@ df = pd.read_csv(csv_file_path)
 
 
 df.rename(columns={
-    'year': 'YEAR',
     'century': 'Century',
     'leap_year': 'Leap_Year',
     'decade_pos': 'Decade_Pos'

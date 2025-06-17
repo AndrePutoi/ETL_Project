@@ -47,11 +47,12 @@ ETL_Project/
 │   └── lista_paises_extraida.csv
 ├── Extration/
 │   └── Extraction_scripts/
+│       ├── Estatic_extraction.py
 │       └── api_extraction.py
 │   └── Get_Metadata/
 │       ├── Generate_indicator_data.py
-│       ├── Generate_location_data.py
-│       └──  Generate_series_data.py
+│       ├── Extract_location_data.py
+│       └── Generate_time_data.py
 ├── Load/
 │   ├── SQL_code/
 │       └── data_warehouse.sql
@@ -90,7 +91,7 @@ ETL_Project/
 ## 📊 Executar o Pipeline
 
 ### Diagrama da Pipeline
-![Texto alternativo](ETL_diagram.png)
+![Texto alternativo](novo_diagrama.drawio.png)
 
 ### Executar a Extração
 #### No terminal, execute o seguinte comando, para extração do metadados e dos dados:
@@ -104,6 +105,7 @@ python Extration/Extraction_scripts/api_extraction.py
 #### No terminal, execute o seguinte comando, para transformação dos dados:
 ```bash
 python Transformation/Concatination/concatination.py
+python Transformation/Estatic_data_melting/Melting_separation.py
 python Transformation/Verification_Process/Country_verification.py
 python Transformation/Filtragem_process/Country_validation.py
 python Transformation/Filtragem_process/Filtragem.py
@@ -233,8 +235,7 @@ Abra o arquivo `Economy_Dashboard.pbix` no Power BI Desktop e conecte-se ao banc
 ---
 ## Melhorias futuras
 - Implementar um melhor sistema de verificação de dados duplicados;
-- Adicionar mais indicadores;
-- Adicionar mais métricas de segurança e monitoramento;
+- Guardar as funções em modulos para melhor organização do código, consequentemente melhorando a legibilidade e manutenção do código;
 - Melhorias na DAG em funcionamento;
 
 

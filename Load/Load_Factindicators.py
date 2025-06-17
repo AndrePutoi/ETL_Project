@@ -12,12 +12,7 @@ df = pd.read_csv(csv_file_path)
 # Tirar o PaisID
 df.dropna(inplace=True)
 
-df.rename(columns={
-    'year': 'YEAR',
-    'country_code': 'IS03_Code',
-    'indicator': 'WB_Code',
-    'value': 'Value'
-}, inplace=True, errors='ignore')
+
 df['Value'] = df['Value'].apply(lambda x: round(x, 5) if pd.notnull(x) else x)
 
 # Conexão com SQL Server
@@ -38,10 +33,11 @@ cursor = cnxn.cursor()
 
 # Inserir dados linha a linha
 for index, row in df.iterrows():
+    print(row)  # ou print(row['ISO3_Code']) para ver exatamente o que vai para a coluna
     cursor.execute("""
-        INSERT INTO FactIndicators (YEAR, IS03_Code, WB_Code, Value)
+        INSERT INTO FactIndicators (YEAR, ISO3_Code, WB_Code, Value)
         VALUES (?, ?, ?, ?)
-    """, row.YEAR, row.IS03_Code, row.WB_Code, row.Value)
+    """, row.YEAR, row.ISO3_Code, row.WB_Code, row.Value)
 
 # Commit e fecha conexão
 cnxn.commit()

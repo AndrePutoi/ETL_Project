@@ -30,7 +30,7 @@ def extrair_todos_paises():
             continue
 
         paises.append({
-            "IS03_Code": item.get("id"),
+            "ISO3_Code": item.get("id"),
             "Country": item.get("name"),
             "Region": item.get("region", {}).get("value", "não definido"),
             "SubRegion": item.get("adminregion", {}).get("value", "não definido"),
@@ -67,10 +67,10 @@ if __name__ == "__main__":
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     df_paises = extrair_todos_paises()
-    df_paises['Continent'] = df_paises['ISO3_code'].apply(get_country_iso3)
+    df_paises['Continent'] = df_paises['ISO3_Code'].apply(get_country_iso3)
     Paises_sem_Continente = df_paises[df_paises['Continent'] == "não definido"]
 
-    print(f"[!] {Paises_sem_Continente['ISO3_code']} países não possuem continente definido:")
+    print(f"[!] {Paises_sem_Continente['ISO3_Code']} países não possuem continente definido:")
     dict_cont_faltante = {
         'CHI': 'North America',
         'SXM': 'North America',
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     }
 
     for iso3, continent in dict_cont_faltante.items():
-        df_paises.loc[df_paises['ISO3_code'] == iso3, 'Continent'] = continent
+        df_paises.loc[df_paises['ISO3_Code'] == iso3, 'Continent'] = continent
         print(f"  - {iso3} -> {continent}")
 
     print(df_paises['Continent'].value_counts())

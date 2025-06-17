@@ -22,7 +22,7 @@ logger.addHandler(stream_handler)
 # ===================================
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "..", "Filtragem_process", "Filtered_data")
+DATA_DIR = os.path.join(BASE_DIR, "..", "Raw_formatted_Economy_Data")
 OUTPUT_DIR = os.path.join(BASE_DIR, "Imputed_data")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -61,7 +61,7 @@ def interpolate_linear_ffill_bfill(indicator_name):
     df = pd.read_csv(file_path)
 
 
-    if df.empty or 'valor' not in df.columns:
+    if df.empty or 'Value' not in df.columns:
         logger.warning(f"Dados ausentes ou coluna 'valor' não encontrada em {indicator_name}.")
         return
 
@@ -69,17 +69,17 @@ def interpolate_linear_ffill_bfill(indicator_name):
 
     df_imputed_list = []
 
-    for pais in df['codigo_pais'].unique():
-        df_pais = df[df['codigo_pais'] == pais].copy()
+    for pais in df['ISO3_Code'].unique():
+        df_pais = df[df['ISO3_Code'] == pais].copy()
 
         # Interpolação linear
-        df_pais['valor_interpolated'] = df_pais['valor'].interpolate(method='linear')
+        df_pais['Value'] = df_pais['Value'].interpolate(method='linear')
 
         # Preenche NaNs no início com bfill
-        df_pais['valor_interpolated'] = df_pais['valor_interpolated'].fillna(method='bfill')
+        df_pais['Value'] = df_pais['Value'].fillna(method='bfill')
 
         # Preenche NaNs no fim com ffill
-        df_pais['valor_interpolated'] = df_pais['valor_interpolated'].fillna(method='ffill')
+        df_pais['Value'] = df_pais['Value'].fillna(method='ffill')
 
         df_imputed_list.append(df_pais)
 

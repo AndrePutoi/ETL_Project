@@ -78,6 +78,8 @@ def get_country_codes_with_iso2_mapping():
     logger.info(f"Total de países encontrados: {len(country_codes)}")
     return country_codes, iso2_to_iso3
 
+
+
 def get_dataset_country_topic(topic_code, country_code, iso2_to_iso3):
     url = f"http://api.worldbank.org/v2/country/{country_code}/indicator/{topic_code}"
     params = {"format": "json", "date": "1990:2021", "per_page": 100}
@@ -91,10 +93,10 @@ def get_dataset_country_topic(topic_code, country_code, iso2_to_iso3):
         iso3 = iso2_to_iso3.get(iso2, iso2)  # Se não encontrar, mantém ISO2
 
         rows.append({
-            "ano": item["date"],
-            "valor": item["value"],
-            "codigo_pais": iso3,
-            "indicador": topic_code,
+            "YEAR": item["date"],
+            "Value": item["value"],
+            "ISO3_Code": iso3,
+            "WB_Code": topic_code,
         })
 
     df = pd.DataFrame(rows)
@@ -109,10 +111,11 @@ def save_dataset_to_csv(df, filename, indicator='Other', path=DATA_DIR):
     logger.info(f"Arquivo {file_path} salvo com sucesso.")
 
 if __name__ == "__main__":
+    TOPIC_DATA = os.path.join(BASE_DIR, "..","Estatic_Economy_Data", "missing_indicators.csv")
 
     # Obtem códigos e o mapeamento ISO2 → ISO3
     country_codes, iso2_to_iso3 = get_country_codes_with_iso2_mapping()
-    short_indicators = get_short_indicators_name()
+    short_indicators = pd.read_csv(TOPIC_DATA, index_col=0).to_dict()['Indicator Name']
 
     for indicator, indicator_name in short_indicators.items():
         for country_code, country_name in country_codes.items():

@@ -20,7 +20,7 @@ logger.addHandler(stream_handler)
 # ===================================
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "..", "Concatenation", "Concatenated_data")
+DATA_DIR = os.path.join(BASE_DIR, "..", "Raw_formatted_Economy_Data")
 FILTERED_INFO_DIR = os.path.join(BASE_DIR, "..", "Verification_Process", "Verification_files")
 OUTPUT_DIR = os.path.join(BASE_DIR, "Filtered_data")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -58,7 +58,16 @@ def find_invalid_countries():
         return []
 
     logger.info(f"Lendo arquivo de países problemáticos: {file_path}")
-    df = pd.read_csv(file_path)
+    try:
+        df = pd.read_csv(file_path)
+    except pd.errors.EmptyDataError:
+        logger.warning("O arquivo está vazio.")
+        return []
+
+    if df.empty:
+        logger.warning("Nenhum país problemático encontrado no arquivo.")
+        return []
+
     threshold = len(get_short_indicators_name()) * 0.5
     logger.debug(f"Threshold para invalidação de países: {threshold} indicadores")
 
@@ -71,6 +80,7 @@ def find_invalid_countries():
 
     logger.info(f"Países inválidos identificados: {invalid_countries}")
     return invalid_countries
+
 
 
 def filter_data(indicator_code, indicator_name, invalid_countries):

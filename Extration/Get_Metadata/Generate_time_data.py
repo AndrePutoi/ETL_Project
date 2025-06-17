@@ -5,7 +5,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE_DIR, "..","Generated_data")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-def enriquecer_dados_com_ano(df, coluna_ano="year"):
+def gerar_ano_metadados(coluna_ano="YEAR", output_path="anos_enriquecidos.csv"):
     """
     Adiciona colunas úteis baseadas na coluna 'ano':
     - decada
@@ -14,6 +14,9 @@ def enriquecer_dados_com_ano(df, coluna_ano="year"):
     - pos_decada
     - evento
     """
+    # Exemplo com anos de 2000 a 2024
+    df = pd.DataFrame({"YEAR": list(range(1990, 2070))})
+
     df[coluna_ano] = df[coluna_ano].astype(int)
 
     # Década (ex: 2010)
@@ -27,16 +30,13 @@ def enriquecer_dados_com_ano(df, coluna_ano="year"):
 
     # Posição na década (0 a 9)
     df["decade_pos"] = df[coluna_ano] % 10
-    return df
 
+    # Guardar os dados num csv
+    ouput_path = os.path.join(OUTPUT_DIR, output_path)
+    df.to_csv(ouput_path, index=False)
+    print(df.head(10))
 
 # Exemplo de uso:
 if __name__ == "__main__":
-    # Exemplo com anos de 2000 a 2024
-    anos = pd.DataFrame({"year": list(range(1990, 2025))})
-    df_enriquecido = enriquecer_dados_com_ano(anos)
+    gerar_ano_metadados(coluna_ano="YEAR", output_path=os.path.join(OUTPUT_DIR, "anos_enriquecidos.csv"))
 
-    # Guarda em CSV (opcional)
-    ouput_path = os.path.join(OUTPUT_DIR, "anos_enriquecidos.csv")
-    df_enriquecido.to_csv(ouput_path, index=False)
-    print(df_enriquecido.head(10))

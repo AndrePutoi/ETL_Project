@@ -17,7 +17,7 @@ def data_extraction():
 
     if not os.path.exists(csv_path):
         logger.error(f"Arquivo {csv_path} não encontrado.")
-        return
+
 
     # Carrega a lista de países (coluna com ISO2 ou ISO3)
     lista_paises = pd.read_csv(csv_path)
@@ -83,10 +83,10 @@ def data_extraction():
 
             for item in data:
                 final_df.append({
-                    "year": item["date"],
+                    "YEAR": item["date"],
                     "Value": item["value"],
-                    "country_code": country_code,
-                    "indicator": indicator
+                    "ISO_3": country_code,
+                    "WB_Code": indicator
                 })
 
     df_final = pd.DataFrame(final_df)
@@ -164,12 +164,6 @@ def load_new_data():
         df = pd.read_csv(csv_file_path)
         df.dropna(inplace=True)
 
-        df.rename(columns={
-            'year': 'YEAR',
-            'country_code': 'IS03_Code',
-            'indicator': 'WB_Code',
-            'value': 'Value'
-        }, inplace=True, errors='ignore')
 
         # Conexão com o SQL Server
         server = r'DESKTOP-1QEIURD\SQLEXPRESS'

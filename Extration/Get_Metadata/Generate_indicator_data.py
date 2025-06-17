@@ -62,7 +62,8 @@ def extrair_metadados_indicador(codigo_indicador):
         "Description": item.get("sourceNote", "não disponível"),
         "Source": item.get("source", {}).get("value", "não disponível"),
         "Periodicity": item.get("periodicity", "Anual"),
-        "Topics": item.get("topics", [{}])[0].get("value", "não definido")
+        "Topics": item.get("topics", [{}])[0].get("value", "não definido"),
+        "Currency": item.get("unit", "não disponível"),
     }
 
     return pd.DataFrame([dados])

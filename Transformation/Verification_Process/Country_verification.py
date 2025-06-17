@@ -22,7 +22,7 @@ logger.addHandler(stream_handler)
 # ===================================
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "..", "Concatenation", "Concatenated_data")
+DATA_DIR = os.path.join(BASE_DIR, "..", "Raw_formatted_Economy_Data")
 OUTPUT_DIR = os.path.join(BASE_DIR, "Verification_files")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
